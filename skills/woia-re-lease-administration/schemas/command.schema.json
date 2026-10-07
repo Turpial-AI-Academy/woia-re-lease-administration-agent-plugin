@@ -1,0 +1,15 @@
+{
+ "$schema":"http://json-schema.org/draft-07/schema#",
+ "$id":"dev.woia.re.lease-command/v1",
+ "type":"object","required":["action","payload"],
+ "properties":{"action":{"enum":["lease.create","lease.version","lease.activate","lease.renew","lease.terminate","lease.participant.link","lease.handover.record","lease.obligation.evaluate","lease.adjustment.evaluate"]},"payload":{"type":"object"}},
+ "allOf":[
+ {"if":{"properties":{"action":{"enum":["lease.create","lease.version","lease.renew"]}}},"then":{"properties":{"payload":{"type":"object","additionalProperties":false,"required":["terms_ref","property_refs","mandate_ref","accepted_version","activation_rule"],"properties":{"terms_ref":{"type":"string","minLength":1},"property_refs":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","minLength":1}},"mandate_ref":{"type":"string","minLength":1},"accepted_version":{"$ref":"#/definitions/fact"},"activation_rule":{"$ref":"#/definitions/fact"},"import_source":{"type":"object"}}}}}},
+ {"if":{"properties":{"action":{"const":"lease.activate"}}},"then":{"properties":{"payload":{"type":"object","additionalProperties":false,"required":["accepted_facts"],"properties":{"accepted_facts":{"type":"array","items":{"$ref":"#/definitions/fact"}}}}}}},
+ {"if":{"properties":{"action":{"const":"lease.terminate"}}},"then":{"properties":{"payload":{"type":"object","additionalProperties":false,"required":["accepted_termination"],"properties":{"accepted_termination":{"$ref":"#/definitions/fact"}}}}}},
+ {"if":{"properties":{"action":{"const":"lease.participant.link"}}},"then":{"properties":{"payload":{"type":"object","additionalProperties":false,"required":["subject_ref","role","accepted_relationship"],"properties":{"subject_ref":{"type":"string","minLength":1},"role":{"type":"string","minLength":1},"accepted_relationship":{"$ref":"#/definitions/fact"}}}}}},
+ {"if":{"properties":{"action":{"const":"lease.handover.record"}}},"then":{"properties":{"payload":{"type":"object","additionalProperties":false,"required":["fact"],"properties":{"fact":{"allOf":[{"$ref":"#/definitions/fact"},{"properties":{"kind":{"const":"possession"}}}]}}}}}},
+ {"if":{"properties":{"action":{"enum":["lease.obligation.evaluate","lease.adjustment.evaluate"]}}},"then":{"properties":{"payload":{"type":"object","additionalProperties":false,"required":["accepted_rule","period_ref","obligation_ref"],"properties":{"accepted_rule":{"$ref":"#/definitions/fact"},"period_ref":{"type":"string","minLength":1},"obligation_ref":{"type":"string","minLength":1}}}}}}
+ ],
+ "definitions":{"fact":{"type":"object","required":["kind","organization","target","lease_version","status","reference","version","accepted_by","source","policy_revision","current","recorded_at","fresh_until","source_authority"],"properties":{"kind":{"type":"string","minLength":1},"lease_version":{"type":"integer","minimum":1},"status":{"const":"ACCEPTED"},"current":{"const":true},"source_authority":{"type":"object"}}}}
+}

@@ -1,55 +1,39 @@
 ---
 name: woia-re-lease-administration
-description: Real Estate domain provider for attributable versioned lease-administration facts under exact source and authority boundaries.
+description: Manage attributable Lease versions, participants, physical handovers and approved transitions; propose obligations and adjustments without financial effects.
 license: MIT
 ---
 
-# woia-re-lease-administration
+# Lease Administration
 
-## Operating flow
+Use for lease.create, lease.version, lease.activate, lease.renew, lease.terminate,
+lease.participant.link, lease.handover.record, lease.obligation.evaluate and
+lease.adjustment.evaluate. Resolve shared identities and canonical relation contracts
+from the published woia-re-domain-contracts; never duplicate its 85 relations.
 
-~~~text
-DISCOVER -> DECIDE -> IMPLEMENT -> VALIDATE -> REPORT
-~~~
+Read [the contract](references/contract.md) before any transition or financial
+proposal. Validate the [command schema](schemas/command.schema.json), resolve current
+trusted authority/source-map snapshots, and invoke the pure
+[reducer](scripts/lease.mjs). Persist its returned state using atomic expected-revision
+compare-and-swap in a separately qualified organization store. No store/adapter is
+implemented or claimed here; caller-supplied booleans are not authentication.
 
-## Purpose
+1. Resolve organization, actor, purpose, resource access, effective source and writer.
+2. Resolve competent human decision for mutations, bound to exact payload digest.
+3. Preserve Lease identity and immutable LeaseVersion terms/evidence. Existing
+administration imports require accepted Property, administration Mandate and actual
+existing Lease source/version; do not create fictional Listing or placement history.
+4. Activation requires the exact current accepted version and sourced policy plus
+its independently accepted signature, initial money, possession and administrative
+transfer conditions. Do not infer any one fact from another. W1 Financial Ledger
+alone executes accepted Charge/journal consequences.
+5. Handovers record physical possession evidence, including actual return after
+termination, without reopening a Lease or releasing funds.
+6. Evaluate accepted rule references to an auditable proposal for Finance. No rate,
+rounding, fee, legal rule, DBMS, authority or configured organization values are invented.
+7. External requests/notices go through Customer Service/Communications. This provider
+has no dispatch, payment, accounting or signature execution route.
 
-Real Estate domain provider for attributable versioned lease-administration facts under exact source and authority boundaries.
-
-## Minimum sufficient evidence
-
-Use a bounded path when an authoritative existing artifact/evidence set is healthy and the requested change is local and understood:
-
-1. identify the artifact/evidence, source candidate, and affected surface;
-2. load only supporting context and references needed for that surface;
-3. amend or re-evaluate the smallest coherent unit;
-4. verify affected behavior plus mandatory cross-cutting invariants;
-5. preserve unrelated valid artifacts/evidence and report what changed.
-
-Use the deep path for a new artifact, unclear scope or contradictory evidence, public API/event/schema changes, persisted data/migrations, authentication/authorization/secrets/signing/trust boundaries, deployment/rollback/availability risk, cross-provider dependency restructuring, unhealthy or unfamiliar conventions, missing durable required evidence, or a failed invariant that invalidates reused evidence. Load the references/checklists needed by those triggers and retain all required safety validation.
-
-## Discover
-
-Inspect actual repository/system state before changing it. Locate authoritative artifacts/evidence and identify affected standards, constraints, supported platforms, integrations, and user requirements. Expand context when a dependency, uncertainty, or deep-path trigger requires it.
-
-## Decide
-
-Select the smallest strategy that satisfies the capability. Preserve healthy existing standards. Do not infer policy from the author's workspace.
-
-## Implement
-
-Apply only authorized changes. Keep domain semantics independent from unrelated tooling.
-
-## Validate
-
-Run capability-appropriate checks and verify changed state. Reuse evidence only when it is durable, inspectable evidence of actual execution/observation with an identifiable candidate, checked surface, relevant inputs/environment, and outcome. Independently establish that it satisfies the gate being owned; prose claims or recollection are not execution evidence.
-
-A later mutation invalidates the checks whose coverage or inputs it affects. Rerun those checks and mandatory related invariants; preserve unaffected valid evidence. Reuse expensive runtime verification across an unchanged candidate and relevant environment. A new turn/session alone does not invalidate evidence. Execute or observe relevant checks when required evidence cannot be inspected or established. Skipped/unavailable checks are not PASS.
-
-## Report
-
-Report current state, source candidate, affected surface, decisions, changes, and exact usage/maintenance commands. Distinguish reusable evidence, invalidated evidence, freshly established evidence, and assumptions/inferences that are not evidence. Include remaining risks and uncertainties.
-
-## Detailed references
-
-Add focused files under `references/` only when more detail is needed and give each reference a concrete scope/risk/ambiguity load trigger. Load triggered safety references; a bounded amendment does not require every reference or full template replay. Add scripts/assets only when they materially improve deterministic execution.
+Report exact state revision, source evidence and unresolved conditions. Unknown,
+conflicting, stale or unauthorized inputs block acceptance; never call them satisfied.
+Engineering regression is not Operator E2E or Production Ready.
