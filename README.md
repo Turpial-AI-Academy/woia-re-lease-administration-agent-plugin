@@ -1,42 +1,25 @@
-# woia-re-lease-administration
+# WOIA RE Lease Administration v0.5.0
 
-Portable Agent Plugin for Real Estate domain provider for attributable versioned lease-administration facts under exact source and authority boundaries..
+Thin shared-provider for attributable Lease versions, participants and lifecycle,
+physical handover and obligation/adjustment proposals. Independent signature, money,
+possession and administrative transfer are preserved. No live adapter/store or
+external/financial execution is advertised.
 
-## Capability
+See [skill instructions](skills/woia-re-lease-administration/SKILL.md) and
+VALIDATION.md in the source checkout. Runtime contracts resolve from published
+woia-re-domain-contracts; planning coordination is not a runtime dependency.
 
-~~~text
-DISCOVER -> DECIDE -> IMPLEMENT -> VALIDATE -> REPORT
-~~~
+Use the pure apply(state, request) export in
+skills/woia-re-lease-administration/scripts/lease.mjs behind trusted host authority
+resolution and an atomic expected-revision store. No DBMS is selected.
 
-The plugin adapts to the repository it operates on without requiring the consumer to adopt WOIA's authoring toolchain.
+## Local engineering
 
-## Portable package
-
-~~~text
-plugin.json
-README.md
-CHANGELOG.md
-LICENSE
-skills/**
-# optional source diagnostic when retained by the repository
-CHECKSUMS.sha256
-~~~
-
-`CHECKSUMS.sha256` is optional source evidence, not a required portable/release artifact.
-
-Add `mcp.json` only if the capability genuinely requires MCP.
-
-## Consumer requirements
-
-Document only genuine capability/runtime requirements here. Do not list maintenance Node/pnpm/Mise/Docker unless the portable capability itself truly needs them.
-
-## Development
-
-~~~text
-mise install
-mise run bootstrap
-mise run doctor
+mise run test
 mise run ci:fast
-mise run ci:extended
-mise run release:check
-~~~
+
+From exact Ecosystem v0.5.4, certify a committed clean candidate:
+
+mise run plugin:certify-thin --repo <absolute-provider-path>
+
+Publication, admission and Operator E2E remain later authorized gates.
