@@ -12,6 +12,7 @@ function contribution(r, f, kind, version) {
 function terms(r, p, version) {
   fields(p,['terms_ref','property_refs','mandate_ref','accepted_version','activation_rule','import_source']);
   need(p.terms_ref && p.mandate_ref && p.activation_rule, 'TERMS_AND_RULE_REQUIRED');
+  need(Array.isArray(p.property_refs) && p.property_refs.length > 0 && new Set(p.property_refs).size === p.property_refs.length, 'LEASE_PROPERTY_SCOPE_REQUIRED');
   references(r,[p.terms_ref,p.mandate_ref,...(p.property_refs ?? [])]);
   contribution(r,p.accepted_version,'lease-version',version);
   need(p.accepted_version.terms_digest === digest({terms_ref:p.terms_ref,property_refs:p.property_refs,mandate_ref:p.mandate_ref}), 'ACCEPTED_TERMS_MISMATCH');
