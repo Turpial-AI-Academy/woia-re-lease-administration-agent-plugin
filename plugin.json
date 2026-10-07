@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "woia-re-lease-administration",
+  "version": "0.5.0",
+  "description": "Real Estate domain provider for attributable versioned lease-administration facts under exact source and authority boundaries.",
+  "author": {
+    "name": "Turpial AI Academy",
+    "url": "https://github.com/Turpial-AI-Academy"
+  },
+  "homepage": "https://github.com/Turpial-AI-Academy/woia-re-lease-administration-agent-plugin",
+  "repository": "https://github.com/Turpial-AI-Academy/woia-re-lease-administration-agent-plugin",
+  "license": "MIT",
+  "keywords": ["agent-plugin", "woia-re-lease-administration"]
+}
