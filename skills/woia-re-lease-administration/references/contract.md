@@ -1,6 +1,6 @@
 # Lease contract and authority
 
-Permanent source contract: woia-re-domain-contracts v0.5.0, commit
+Permanent source contract: woia-re-domain-contracts v0.5.6, commit
 fb1c8a3f7fb116f2a00daf05ae335fdfbc7c3f3f, tree
 f3ff5a68a0d5df2e615a650eddc313c9585b7f08. Resolve canonical Lease relations,
 source authority, exact financial boundaries and Rental E2E specifications there.

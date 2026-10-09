@@ -25,7 +25,7 @@ administration imports require accepted Property, administration Mandate and act
 existing Lease source/version; do not create fictional Listing or placement history.
 4. Activation requires the exact current accepted version and sourced policy plus
 its independently accepted signature, initial money, possession and administrative
-transfer conditions. Do not infer any one fact from another. W1 Financial Ledger
+transfer conditions. Do not infer any one fact from another. Financial Ledger
 alone executes accepted Charge/journal consequences.
 5. Handovers record physical possession evidence, including actual return after
 termination, without reopening a Lease or releasing funds.
