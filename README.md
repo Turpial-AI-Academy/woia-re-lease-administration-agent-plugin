@@ -1,4 +1,4 @@
-# WOIA RE Lease Administration v0.5.6
+# WOIA RE Lease Administration v0.5.7
 
 Thin shared-provider for attributable Lease versions, participants and lifecycle,
 physical handover and obligation/adjustment proposals. Independent signature, money,
@@ -18,7 +18,7 @@ resolution and an atomic expected-revision store. No DBMS is selected.
 mise run test
 mise run ci:fast
 
-From exact Ecosystem v0.5.6, certify a committed clean candidate:
+From exact Ecosystem v0.5.7, certify a committed clean candidate:
 
 mise run plugin:certify-thin --repo <absolute-provider-path>
 
