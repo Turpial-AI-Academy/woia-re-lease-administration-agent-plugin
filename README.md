@@ -1,4 +1,4 @@
-# WOIA RE Lease Administration v0.5.7
+# WOIA RE Lease Administration v0.5.8
 
 Thin shared-provider for attributable Lease versions, participants and lifecycle,
 physical handover and obligation/adjustment proposals. Independent signature, money,

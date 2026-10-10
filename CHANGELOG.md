@@ -2,6 +2,7 @@
 
 ## [0.5.8] - 2026-10-10
 
+- Update the consumer README's displayed version to match the candidate.
 ### Changed
 
 - Remove the standalone-operation tooling rule from `AGENTS.md` capability rules and renumber the remaining rules.
