@@ -6,7 +6,7 @@ possession and administrative transfer are preserved. No live adapter/store or
 external/financial execution is advertised.
 
 See [skill instructions](skills/woia-re-lease-administration/SKILL.md) and
-VALIDATION.md in the source checkout. Runtime contracts resolve from published
+[maintenance instructions](https://github.com/Turpial-AI-Academy/woia-re-lease-administration-agent-plugin/blob/main/docs/MAINTENANCE.md) in the source checkout. Runtime contracts resolve from published
 woia-re-domain-contracts; planning coordination is not a runtime dependency.
 
 Use the pure apply(state, request) export in
@@ -18,7 +18,7 @@ resolution and an atomic expected-revision store. No DBMS is selected.
 mise run test
 mise run ci:fast
 
-From exact Ecosystem v0.5.7, certify a committed clean candidate:
+From the canonical WOIA Ecosystem repository, certify a committed clean candidate:
 
 mise run plugin:certify-thin --repo <absolute-provider-path>
 
